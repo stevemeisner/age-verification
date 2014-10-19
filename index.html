@@ -33,7 +33,7 @@
 			<div class="splash">
 				<h1 class="splash-head">Big Bold Flavor</h1>
 				<p class="splash-subhead">Sweet Grass Kitchen has become synonymous with creative, effective, and delicious baked goods.</p>
-				<p><a href="http://purecss.io" class="pure-button pure-button-primary">I Already I know I'm Old Enough</a></p>
+				<p><a href="http://purecss.io" class="pure-button pure-button-primary">Freedom</a></p>
 			</div>
 		</div>
 
@@ -123,7 +123,7 @@
 				height: 100%;
 				width: 100%;
 				z-index: 100;
-				background-color: rgba(0,0,0,.75);
+				background-color: rgba(0,0,0,.8);
 			}
 
 			#modal_content {
@@ -149,7 +149,7 @@
 				color:#777;
 			}
 
-			#modal_content nav a.sg_btn {
+			#modal_content nav a.av_btn {
 				float: left;
 				display: block;
 				border-radius: 3px;
@@ -161,12 +161,12 @@
 				text-decoration: none
 			}
 
-			#modal_content #modal_regret_wrapper nav a.sg_btn {
+			#modal_content #modal_regret_wrapper nav a.av_btn {
 				float: none;
 				margin:0 auto;
 			}
 
-			#modal_content nav .sg_go {
+			#modal_content nav .av_go {
 				background-color: #7fbf4d;
 				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7fbf4d), color-stop(100%, #63a62f));
 				background-image: -webkit-linear-gradient(top, #7fbf4d, #63a62f);
@@ -182,7 +182,7 @@
 				margin-right: 2em;
 			}
 
-			#modal_content nav .sg_go:hover {
+			#modal_content nav .av_go:hover {
 				background-color: #76b347;
 				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #76b347), color-stop(100%, #5e9e2e));
 				background-image: -webkit-linear-gradient(top, #76b347, #5e9e2e);
@@ -194,11 +194,11 @@
 				box-shadow: inset 0 1px 0 0 #8dbf67;
 			}
 
-			#modal_content nav .sg_go:active {
+			#modal_content nav .av_go:active {
 				text-shadow: 0 1px 0 #4c9021;
 			}
 
-			#modal_content nav .sg_no {
+			#modal_content nav .av_no {
 				background-color: #b90034;
 				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b90034), color-stop(100%, #940034));
 				background-image: -webkit-linear-gradient(top, #b90034, #940034);
@@ -213,7 +213,7 @@
 				text-shadow: 0 -1px 0 #880034;
 			}
 
-			#modal_content nav .sg_no:hover {
+			#modal_content nav .av_no:hover {
 				background-color: #ab0034;
 				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ab0034), color-stop(100%, #850823));
 				background-image: -webkit-linear-gradient(top, #ab0034, #850823);
@@ -222,9 +222,10 @@
 				background-image: -o-linear-gradient(top, #ab0034, #850823);
 				background-image: linear-gradient(top, #ab0034, #850823);
 				-webkit-box-shadow: inset 0 1px 0 0 #af0034;
-				box-shadow: inset 0 1px 0 0 #af0034;			}
+				box-shadow: inset 0 1px 0 0 #af0034;
+			}
 
-			#modal_content nav .sg_no:active {
+			#modal_content nav .av_no:active {
 				text-shadow: 0 1px 0 #880034;
 			}
 		</style>
@@ -235,62 +236,77 @@
 			// The containers were not getting appended to the end of the document, and so the modal screen wasn't visible.
 			// Need to ensure that the elements get appended to the very end!
 
+			var modal_content,
+				modal_screen;
+
 			$(document).ready(function(){
+				av_legality_check();
+			});
+
+			$(window).load(function(){
+				av_move_modal_to_the_end();
+			});
+
+			av_legality_check = function() {
 				if ($.cookie('is_legal') == "yes") {
 					//legal!
 					// Do nothing?
 				} else {
-					sg_showmodal();
+					av_showmodal();
 				}
-			});
+			};
 
-			sg_showmodal = function() {
-				var modal_screen = $('<div id="modal_screen"></div>');
-				var modal_content = $('<div id="modal_content"></div>');
+			av_move_modal_to_the_end = function() {
+				$('body').append(modal_screen, modal_content);
+			};
+
+			av_showmodal = function() {
+				modal_screen = $('<div id="modal_screen"></div>');
+				modal_content = $('<div id="modal_content"></div>');
 				var modal_content_wrapper = $('<div id="modal_content_wrapper"></div>');
 				var modal_regret_wrapper = $('<div id="modal_regret_wrapper" style="display:none;"></div>');
 				
 				// Question Content
-				var content_heading = $('<h2>Are you 18 or older?</h2>');
-				var content_text = $('<p>You must verify that you are 18 years of age or older to enter this site.</p>');
-				var content_buttons = $('<nav><a href="#nothing" class="sg_btn sg_go" rel="yes">I\'m old enough</a> <a href="#nothing" class="sg_btn sg_no" rel="no">I\'m NOT old enough</a></nav');
+				var content_heading = $('<h2>Are you 21 or older?</h2>');
+				var content_text = $('<p>You must verify that you are 21 years of age or older to enter this site.</p>');
+				var content_buttons = $('<nav><a href="#nothing" class="av_btn av_go" rel="yes">I\'m old enough</a> <a href="#nothing" class="av_btn av_no" rel="no">I\'m NOT old enough</a></nav');
 				
 				// Regret Content
 				var regret_heading = $('<h2>We\'re Sorry!</h2>');
-				var regret_text = $('<p>You must be 18 years of age or older to enter this site.</p>');
-				var regret_buttons = $('<nav><small>I hit the wrong button!</small> <a href="#nothing" class="sg_btn sg_go" rel="yes">I\'m old enough!</a></nav');
+				var regret_text = $('<p>You must be 21 years of age or older to enter this site.</p>');
+				var regret_buttons = $('<nav><small>I hit the wrong button!</small> <a href="#nothing" class="av_btn av_go" rel="yes">I\'m old enough!</a></nav');
 
 				modal_content_wrapper.append(content_heading, content_text, content_buttons);
 				modal_regret_wrapper.append(regret_heading, regret_text, regret_buttons);
 				modal_content.append(modal_content_wrapper, modal_regret_wrapper);
 
-				$('body').append(modal_screen, modal_content);
+				av_move_modal_to_the_end();
 				
-				$('#modal_content').find('a.sg_btn').on('click', sg_setCookie);
+				$('#modal_content').find('a.av_btn').on('click', av_setCookie);
 			};
 
-			sg_setCookie = function(e) {
+			av_setCookie = function(e) {
 				var is_legal = $(e.currentTarget).attr('rel');
-				console.log(is_legal);
 				e.preventDefault();
 
 				$.cookie('is_legal', is_legal, { expires: 30, path: '/' });
 
 				if(is_legal == "yes") {
-					sg_closeModal();
+					av_closeModal();
 				} else {
-					sg_showRegret();
+					av_showRegret();
 				}
 			};
 
-			sg_closeModal = function() {
-				$('#modal_content, #modal_screen').fadeOut();
+			av_closeModal = function() {
+				modal_content.fadeOut();
+				modal_screen.fadeOut();
 			};
 
-			sg_showRegret = function() {
-				$('#modal_screen').css( {backgroundColor: 'rgba(0,0,0,.9)'} );
-				$('#modal_content').find('#modal_content_wrapper').hide();
-				$('#modal_content').find('#modal_regret_wrapper').show();
+			av_showRegret = function() {
+				modal_screen.css( {backgroundColor: 'rgba(0,0,0,.9)'} );
+				modal_content.find('#modal_content_wrapper').hide();
+				modal_content.find('#modal_regret_wrapper').show();
 			};
 		</script>
 	</body>
