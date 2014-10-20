@@ -1,0 +1,127 @@
+/*!
+ * Age verification CSS to go with the JS that can be found at (https://github.com/Herudea/age-verification)
+ */
+
+#modal_screen {
+	position: fixed;
+	top:0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1100;
+	background-color: rgba(0,0,0,.8);
+}
+
+#modal_content {
+	position: fixed;
+	top: 10em;
+	top: 30vh;
+	left: 30vw;
+	z-index: 1101;
+	width: 90%;
+	max-width: 450px;
+	padding:3em;
+	margin: 0 auto;
+	background-color:#fff;
+	border:4px solid #444;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#modal_content h2 {
+	margin-top:0;
+}
+
+#modal_content p {
+	margin-bottom:0;
+}
+
+#modal_content nav small {
+	display: block;
+	text-align: center;
+	color:#777;
+}
+
+#modal_content nav a.av_btn {
+	float: left;
+	display: block;
+	width: 150px;
+	border-radius: 3px;
+	font: bold 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	padding: 7px 0 8px 0;
+	margin-top:1.1em;
+	text-align: center;
+	color: #fff;
+	text-decoration: none
+}
+
+#modal_content #modal_regret_wrapper nav a.av_btn {
+	float: none;
+	margin:0 auto;
+}
+
+#modal_content nav .av_go {
+	background-color: #7fbf4d;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7fbf4d), color-stop(100%, #63a62f));
+	background-image: -webkit-linear-gradient(top, #7fbf4d, #63a62f);
+	background-image: -moz-linear-gradient(top, #7fbf4d, #63a62f);
+	background-image: -ms-linear-gradient(top, #7fbf4d, #63a62f);
+	background-image: -o-linear-gradient(top, #7fbf4d, #63a62f);
+	background-image: linear-gradient(top, #7fbf4d, #63a62f);
+	border: 1px solid #63a62f;
+	border-bottom: 1px solid #5b992b;
+	-webkit-box-shadow: inset 0 1px 0 0 #96ca6d;
+	box-shadow: inset 0 1px 0 0 #96ca6d;
+	text-shadow: 0 -1px 0 #4c9021;
+	margin-right: 2em;
+}
+
+#modal_content nav .av_go:hover {
+	background-color: #76b347;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #76b347), color-stop(100%, #5e9e2e));
+	background-image: -webkit-linear-gradient(top, #76b347, #5e9e2e);
+	background-image: -moz-linear-gradient(top, #76b347, #5e9e2e);
+	background-image: -ms-linear-gradient(top, #76b347, #5e9e2e);
+	background-image: -o-linear-gradient(top, #76b347, #5e9e2e);
+	background-image: linear-gradient(top, #76b347, #5e9e2e);
+	-webkit-box-shadow: inset 0 1px 0 0 #8dbf67;
+	box-shadow: inset 0 1px 0 0 #8dbf67;
+}
+
+#modal_content nav .av_go:active {
+	text-shadow: 0 1px 0 #4c9021;
+}
+
+#modal_content nav .av_no {
+	background-color: #b90034;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b90034), color-stop(100%, #940034));
+	background-image: -webkit-linear-gradient(top, #b90034, #940034);
+	background-image: -moz-linear-gradient(top, #b90034, #940034);
+	background-image: -ms-linear-gradient(top, #b90034, #940034);
+	background-image: -o-linear-gradient(top, #b90034, #940034);
+	background-image: linear-gradient(top, #b90034, #940034);
+	border: 1px solid #8f0034;
+	border-bottom: 1px solid #7b0034;
+	-webkit-box-shadow: inset 0 1px 0 0 #af0034;
+	box-shadow: inset 0 1px 0 0 #af0034;
+	text-shadow: 0 -1px 0 #880034;
+}
+
+#modal_content nav .av_no:hover {
+	background-color: #ab0034;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ab0034), color-stop(100%, #850823));
+	background-image: -webkit-linear-gradient(top, #ab0034, #850823);
+	background-image: -moz-linear-gradient(top, #ab0034, #850823);
+	background-image: -ms-linear-gradient(top, #ab0034, #850823);
+	background-image: -o-linear-gradient(top, #ab0034, #850823);
+	background-image: linear-gradient(top, #ab0034, #850823);
+	-webkit-box-shadow: inset 0 1px 0 0 #af0034;
+	box-shadow: inset 0 1px 0 0 #af0034;
+}
+
+#modal_content nav .av_no:active {
+	text-shadow: 0 1px 0 #880034;
+}
