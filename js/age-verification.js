@@ -11,7 +11,7 @@ $(document).ready(function() {
 });
 
 // Make sure the prompt stays in the middle.
-$(window).resize(function() {
+$( window ).resize(function() {
 	av_positionPrompt();
 });
 
@@ -27,21 +27,21 @@ av_legality_check = function() {
 av_showmodal = function() {
 	modal_screen = $('<div id="modal_screen"></div>');
 	modal_content = $('<div id="modal_content" style="display:none"></div>');
-	var modal_content_wrapper = $('<div id="modal_content_wrapper"></div>');
-	var modal_regret_wrapper = $('<div id="modal_regret_wrapper" style="display:none;"></div>');
+	var modal_content_wrapper = $('<div id="modal_content_wrapper" class="content_wrapper"></div>');
+	var modal_regret_wrapper = $('<div id="modal_regret_wrapper" class="content_wrapper" style="display:none;"></div>');
 
 	// Question Content
 	var content_heading = $('<h2>Are you 21 or older?</h2>');
+	var content_buttons = $('<nav><ul><li><a href="#nothing" class="av_btn av_go" rel="yes">Yes</a></li><li><a href="#nothing" class="av_btn av_no" rel="no">No</a></li></nav');
 	var content_text = $('<p>You must verify that you are 21 years of age or older to enter this site.</p>');
-	var content_buttons = $('<nav><a href="#nothing" class="av_btn av_go" rel="yes">I\'m old enough</a> <a href="#nothing" class="av_btn av_no" rel="no">I\'m NOT old enough</a></nav');
 
 	// Regret Content
 	var regret_heading = $('<h2>We\'re Sorry!</h2>');
+	var regret_buttons = $('<nav><small>I hit the wrong button!</small> <ul><li><a href="#nothing" class="av_btn av_go" rel="yes">I\'m old enough!</a></li></ul></nav');
 	var regret_text = $('<p>You must be 21 years of age or older to enter this site.</p>');
-	var regret_buttons = $('<nav><small>I hit the wrong button!</small> <a href="#nothing" class="av_btn av_go" rel="yes">I\'m old enough!</a></nav');
 
-	modal_content_wrapper.append(content_heading, content_text, content_buttons);
-	modal_regret_wrapper.append(regret_heading, regret_text, regret_buttons);
+	modal_content_wrapper.append(content_heading, content_buttons, content_text);
+	modal_regret_wrapper.append(regret_heading, regret_text);
 	modal_content.append(modal_content_wrapper, modal_regret_wrapper);
 
 	// Append the prompt to the end of the document
@@ -65,6 +65,7 @@ av_setCookie = function(e) {
 
 	if (is_legal == "yes") {
 		av_closeModal();
+		$(window).off('resize');
 	} else {
 		av_showRegret();
 	}
@@ -76,9 +77,7 @@ av_closeModal = function() {
 };
 
 av_showRegret = function() {
-	modal_screen.css({
-		backgroundColor: 'rgba(0,0,0,.9)'
-	});
+	modal_screen.addClass('nope');
 	modal_content.find('#modal_content_wrapper').hide();
 	modal_content.find('#modal_regret_wrapper').show();
 };
@@ -91,6 +90,7 @@ av_positionPrompt = function() {
 		'left': left
 	});
 
-	if (modal_content.is(':hidden'))
+	if (modal_content.is(':hidden') && ($.cookie('is_legal') != "yes")) {
 		modal_content.fadeIn('slow')
+	}
 };
