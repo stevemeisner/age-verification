@@ -10,17 +10,16 @@ $(document).ready(function() {
 	av_legality_check();
 });
 
-// Make sure the prompt stays in the middle.
-$( window ).resize(function() {
-	av_positionPrompt();
-});
 
 av_legality_check = function() {
 	if ($.cookie('is_legal') == "yes") {
-		//legal!
+		// legal!
 		// Do nothing?
 	} else {
 		av_showmodal();
+
+		// Make sure the prompt stays in the middle.
+		$(window).on('resize', av_positionPrompt);
 	}
 };
 
