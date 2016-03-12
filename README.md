@@ -18,4 +18,4 @@ You can see where to inject the JS from this helpful [Squarespace Article](https
 
 ### To use your own logo...
 
-Simply need to replace the `background-image: url(data:image/svg+xml;base64,PD9...)` on line 39 of `age-verification.css` to be `background-image: url(path/to-your-/image)`.
+Simply edit line 39 of `age-verification.css` where is says `background-image: url(data:image/svg+xml;base64,PD9...)` to be `background-image: url(path/to-your-/image)`.
