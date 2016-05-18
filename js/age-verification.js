@@ -40,7 +40,7 @@ av_showmodal = function() {
 	var regret_text = $('<p>You must be 21 years of age or older to enter this site.</p>');
 
 	modal_content_wrapper.append(content_heading, content_buttons, content_text);
-	modal_regret_wrapper.append(regret_heading, regret_text);
+	modal_regret_wrapper.append(regret_heading, regret_buttons, regret_text);
 	modal_content.append(modal_content_wrapper, modal_regret_wrapper);
 
 	// Append the prompt to the end of the document
