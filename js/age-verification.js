@@ -31,12 +31,12 @@ av_showmodal = function() {
 
 	// Question Content
 	var content_heading = $('<h2>Are you 21 or older?</h2>');
-	var content_buttons = $('<nav><ul><li><a href="#nothing" class="av_btn av_go" rel="yes">Yes</a></li><li><a href="#nothing" class="av_btn av_no" rel="no">No</a></li></nav');
+	var content_buttons = $('<nav><ul><li><a href="#nothing" class="av_btn av_go" rel="yes">Yes</a></li><li><a href="#nothing" class="av_btn av_no" rel="no">No</a></li></nav>);
 	var content_text = $('<p>You must verify that you are 21 years of age or older to enter this site.</p>');
 
 	// Regret Content
 	var regret_heading = $('<h2>We\'re Sorry!</h2>');
-	var regret_buttons = $('<nav><small>I hit the wrong button!</small> <ul><li><a href="#nothing" class="av_btn av_go" rel="yes">I\'m old enough!</a></li></ul></nav');
+	var regret_buttons = $('<nav><small>I hit the wrong button!</small> <ul><li><a href="#nothing" class="av_btn av_go" rel="yes">I\'m old enough!</a></li></ul></nav>);
 	var regret_text = $('<p>You must be 21 years of age or older to enter this site.</p>');
 
 	modal_content_wrapper.append(content_heading, content_buttons, content_text);
