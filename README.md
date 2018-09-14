@@ -23,3 +23,4 @@ Simply edit line 39 of `age-verification.css` where is says `background-image: u
 ### Contributors
 
 * [Sebastien Gens](https://github.com/SebastienGens)
+* [Nikita Drozd](https://github.com/ndrozd)
